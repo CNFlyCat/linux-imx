@@ -3353,6 +3353,8 @@ static void fec_reset_phy(struct platform_device *pdev)
 	}
 	msleep(msec);
 	gpio_set_value(phy_reset, 1);
+	/* SR8201F reset should be delay > 150 ms can used */
+	msleep(200);
 }
 #else /* CONFIG_OF */
 static void fec_reset_phy(struct platform_device *pdev)
